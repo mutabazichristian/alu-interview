@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+"""
+Minimum Operations
+"""
 
 def minOperations(n):
+    """
+    Minimum Operations
+    """
     #number to increment to n
     m = 1
     #used for increment
