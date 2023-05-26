@@ -14,11 +14,9 @@ def minOperations(n):
     #Operations count starts at 1 to account for the initial copy
     operationsCount = 0
     i = 1
+    if (n <= 0):
+        return 0
     for i in range(n):
-        if (m == n):
-            return operationsCount
-        if (m > n) or (n <= 0):
-            return 0
         if ((n % m) == 0):
             x = m
             operationsCount +=1
@@ -29,3 +27,9 @@ def minOperations(n):
                 m = m + x
                 operationsCount +=1
         
+        if (m == n):
+            return operationsCount
+        if (m > n):
+            return 0
+        i += 1
+print(minOperations(-12))
