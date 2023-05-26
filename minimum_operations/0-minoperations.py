@@ -27,5 +27,5 @@ def minOperations(n):
         
         if (m == n):
             return operationsCount
-        if (m > n):
+        if (m > n) or (m == 0):
             return 0
