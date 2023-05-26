@@ -23,5 +23,3 @@ def minOperations(n):
             return operationsCount
         if (m > n):
             return 0
-        
-print(minOperations(12))
