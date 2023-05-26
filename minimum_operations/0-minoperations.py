@@ -32,4 +32,3 @@ def minOperations(n):
         if (m > n):
             return 0
         i += 1
-print(minOperations(-12))
