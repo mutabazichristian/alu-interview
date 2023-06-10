@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 def rain(walls):
+    """walls"""
     if len(walls) == 0:
         return 0
     for i in range(1, len(walls)):
+        """loops"""
         if (walls[i] >= walls[i-1]):
             amount += walls[i-1]
         else:
