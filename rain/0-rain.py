@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Documentation
+"""
 def rain(walls):
     """walls"""
     if len(walls) == 0:
