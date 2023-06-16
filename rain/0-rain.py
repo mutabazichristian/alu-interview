@@ -1,39 +1,47 @@
 #!/usr/bin/python3
 """
-minOperations module
+rainwater module
 
-This module provides a method to calculate the fewest
-number of operations required to obtain a desired count
-of H characters in a file, given the operations Copy All and Paste.
+This module provides a method to calculate the total amount
+of rainwater retained based on the heights of walls in a relief map.
 
 """
-import math
 
 
-def minOperations(n):
+def rain(walls):
     """
-    Calculates the fewest number of operations required to
-    obtain exactly n H characters in the file.
+    Calculates the total amount of rainwater retained based on the heights
+    of walls.
 
     Parameters:
-        n (int): The desired count of H characters.
+        walls (list): A list of non-negative integers representing the
+        heights of walls.
 
     Returns:
-        int: The minimum number of operations required.
-        If n is impossible to achieve or invalid(negative), returns 0.
+        int: The total amount of rainwater retained.
 
     """
-    if n <= 0:
+
+    if not walls:
         return 0
 
-    operations = 0
+    total_water = 0
+    left_max = [0] * len(walls)
+    right_max = [0] * len(walls)
 
-    for i in range(2, int(math.sqrt(n)) + 1):
-        while n % i == 0:
-            operations += i
-            n = n // i
+    # Calculate the maximum height of walls to the left of each wall
+    left_max[0] = walls[0]
+    for i in range(1, len(walls)):
+        left_max[i] = max(left_max[i - 1], walls[i])
 
-    if n > 1:
-        operations += n
+    # Calculate the maximum height of walls to the right of each wall
+    right_max[-1] = walls[-1]
+    for i in range(len(walls) - 2, -1, -1):
+        right_max[i] = max(right_max[i + 1], walls[i])
 
-    return operations
+    # Calculate the amount of water retained at each wall
+    for i in range(len(walls)):
+        water_height = min(left_max[i], right_max[i]) - walls[i]
+        total_water += max(water_height, 0)
+
+    return total_water
