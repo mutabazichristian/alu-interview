@@ -2,6 +2,7 @@
 """
 Minimum Operations
 
+Documentation
 """
 
 
@@ -9,6 +10,7 @@ def minOperations(n):
     """
     Minimum Operations
     
+    More documentations
     """
     # number to increment to n
     m = 1
